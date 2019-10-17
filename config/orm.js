@@ -65,7 +65,7 @@ function printQuestionMarks(num) {
           cb(result);
         });
       },
-      updateOne: function(table, objColVals) {
+      updateOne: function(table, objColVals, condition) {
         var queryString = "UPDATE " + table;
     
         queryString += " SET ";
@@ -82,6 +82,19 @@ function printQuestionMarks(num) {
           cb(result);
         });
       },
+      deleteOne: function(table, condition, cb) {
+        var queryString = "DELETE FROM " + table;
+        queryString += " WHERE ";
+        queryString += condition;
+    
+        connection.query(queryString, function(err, result) {
+          if (err) {
+            throw err;
+          }
+    
+          cb(result);
+        });
+      }
 }
 
 module.exports = orm;
