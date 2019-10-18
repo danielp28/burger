@@ -65,7 +65,7 @@ function printQuestionMarks(num) {
           cb(result);
         });
       },
-      updateOne: function(table, objColVals, condition) {
+      updateOne: function(table, objColVals, condition, cb) {
         var queryString = "UPDATE " + table;
     
         queryString += " SET ";
